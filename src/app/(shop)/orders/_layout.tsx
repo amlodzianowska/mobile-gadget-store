@@ -1,10 +1,15 @@
-import { Stack } from "expo-router";
+import { Tabs } from "expo-router"
+import { SafeAreaView } from "react-native-safe-area-context"
 
-export default function OrdersLayout() {
-    return <Stack>
-        <Stack.Screen 
-            name='index' 
-            options={{headerShown: false}} 
-        />
-    </Stack>
+const TabsLayout = () => {
+    return (
+        <SafeAreaView>
+            <Tabs>
+                <Tabs.Screen name='index' options={{headerShown: false}}/>
+                <Tabs.Screen name='orders' options={{}}/>
+            </Tabs>
+        </SafeAreaView>
+    )
 }
+
+export default TabsLayout;
