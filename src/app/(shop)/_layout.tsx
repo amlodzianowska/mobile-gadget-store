@@ -1,6 +1,14 @@
-import { Tabs } from "expo-router"
-import { SafeAreaView } from "react-native-safe-area-context"
-import { StyleSheet } from "react-native"
+import { Tabs } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet } from "react-native";
+import { FontAwesome } from '@expo/vector-icons';
+
+function TabBarIcon(props: {
+    name: React.ComponentProps<typeof FontAwesome>['name'];
+    color: string;
+}) {
+    return <FontAwesome size={24} style={{ color: '#1BC464' }} {...props} />;
+}
 
 const TabsLayout = () => {
     return (
@@ -16,7 +24,13 @@ const TabsLayout = () => {
                 },
                 headerShown: false
             }}>
-                <Tabs.Screen name='index' options={{headerShown: false}}/>
+                <Tabs.Screen 
+                    name='index' 
+                    options={{
+                        tabBarIcon(props) {
+                            return <TabBarIcon {...props} name='shopping-cart' />;
+                        },
+                    }}/>
                 <Tabs.Screen name='orders' options={{}}/>
             </Tabs>
         </SafeAreaView>
