@@ -1,9 +1,19 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 export const ListHeader = () => {
   return (
     <View style={[styles.headerContainer]}>
-      <View style={styles.headerTop}></View>
+      <View style={styles.headerTop}>
+        <View style={styles.headerLeft}>
+          <View style={styles.avatarContainer}>
+            <Image
+              source={{ uri: "https://placehold.co/400" }}
+              style={styles.avatarImage}
+            />
+            <Text style={styles.avatarText}>Hello, Anna</Text>
+          </View>
+        </View>
+      </View>
       <View style={styles.heroContainer}></View>
       <View style={styles.categoriesContainer}></View>
     </View>
