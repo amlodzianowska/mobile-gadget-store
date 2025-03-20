@@ -1,4 +1,6 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { Link } from "expo-router";
+import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
 export const ListHeader = () => {
   return (
@@ -13,6 +15,23 @@ export const ListHeader = () => {
             <Text style={styles.avatarText}>Hello, Anna</Text>
           </View>
         </View>
+        <Link style={styles.cartContainer} href="/cart" asChild>
+          <Pressable>
+            {({ pressed }) => (
+              <View>
+                <FontAwesome
+                  name="shopping-cart"
+                  size={25}
+                  color="gray"
+                  style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                />
+                <View style={styles.badgeContainer}>
+                  <Text style={styles.badgeText}>{1}</Text>
+                </View>
+              </View>
+            )}
+          </Pressable>
+        </Link>
       </View>
       <View style={styles.heroContainer}></View>
       <View style={styles.categoriesContainer}></View>
