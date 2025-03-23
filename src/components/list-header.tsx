@@ -16,7 +16,7 @@ export const ListHeader = () => {
         <View style={styles.headerLeft}>
           <View style={styles.avatarContainer}>
             <Image
-              source={{ uri: "https://placehold.co/400" }}
+              source={require("../../assets/images/profile.png")}
               style={styles.avatarImage}
             />
             <Text style={styles.avatarText}>Hello, Anna</Text>
@@ -45,7 +45,12 @@ export const ListHeader = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={styles.heroContainer}></View>
+      <View style={styles.heroContainer}>
+        <Image
+          source={require("../../assets/images/hero.png")}
+          style={styles.heroImage}
+        />
+      </View>
       <View style={styles.categoriesContainer}></View>
     </View>
   );
