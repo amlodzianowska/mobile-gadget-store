@@ -1,7 +1,8 @@
 import { Redirect, Stack, useLocalSearchParams } from "expo-router";
-import { StyleSheet, Image, View } from "react-native";
+import { StyleSheet, Image, View, Text, FlatList } from "react-native";
 import { CATEGORIES } from "../../../assets/categories";
 import { PRODUCTS } from "../../../assets/products";
+import { ProductListItem } from "../../components/product-list-item";
 
 const Category = () => {
   const { slug } = useLocalSearchParams<{ slug: string }>();
@@ -16,6 +17,15 @@ const Category = () => {
     <View style={styles.container}>
       <Stack.Screen options={{ title: category.name }} />
       <Image source={{ uri: category.imageUrl }} style={styles.categoryImage} />
+      <Text style={styles.categoryName}>{category.name}</Text>
+      <FlatList
+        data={products}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => <ProductListItem product={item} />}
+        numColumns={2}
+        columnWrapperStyle={styles.productRow}
+        contentContainerStyle={styles.productList}
+      />
     </View>
   );
 };
