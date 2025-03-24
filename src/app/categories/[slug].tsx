@@ -1,5 +1,5 @@
 import { Redirect, Stack, useLocalSearchParams } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Image, View } from "react-native";
 import { CATEGORIES } from "../../../assets/categories";
 import { PRODUCTS } from "../../../assets/products";
 
@@ -15,7 +15,7 @@ const Category = () => {
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ title: category.name }} />
-      <Text style={styles.categoryName}>{category.name}</Text>
+      <Image source={{ uri: category.imageUrl }} style={styles.categoryImage} />
     </View>
   );
 };
