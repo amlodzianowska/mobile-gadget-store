@@ -59,7 +59,14 @@ export const useCartStore = create<CartState>((set, get) => ({
         ),
       };
     }),
-  decrementItem: () => null,
+  decrementItem: (id: number) =>
+    set((state) => ({
+      items: state.items.map((item) =>
+        item.id === id && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      ),
+    })),
   getTotalPrice: () => "",
   getItemCount: () => 0,
 }));
