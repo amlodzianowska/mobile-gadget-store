@@ -1,4 +1,11 @@
-import { StyleSheet, Text, View, Image, FlatList } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import { Redirect, Stack, useLocalSearchParams } from "expo-router";
 import { useToast } from "react-native-toast-notifications";
 import { PRODUCTS } from "../../../assets/products";
@@ -52,6 +59,15 @@ const ProductDetails = () => {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.imagesContainer}
         />
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity
+            style={styles.quantityButton}
+            onPress={decreaseQuantity}
+            disabled={quantity <= 1}
+          >
+            <Text style={styles.quantityButtonText}>-</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -97,5 +113,43 @@ const styles = StyleSheet.create({
   },
   imagesContainer: {
     marginBottom: 16,
+  },
+  quantityButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#007bff",
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 8,
+  },
+  quantityButtonText: {
+    color: "#fff",
+    fontSize: 24,
+  },
+  quantity: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginHorizontal: 16,
+  },
+  addToCartButton: {
+    flex: 1,
+    backgroundColor: "#28a745",
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 8,
+  },
+  addToCartText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  errorMessage: {
+    fontSize: 18,
+    color: "#f00",
+    textAlign: "center",
+    marginTop: 20,
   },
 });
