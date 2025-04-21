@@ -114,6 +114,12 @@ const styles = StyleSheet.create({
   imagesContainer: {
     marginBottom: 16,
   },
+  buttonContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+    paddingHorizontal: 16,
+  },
   quantityButton: {
     width: 40,
     height: 40,
