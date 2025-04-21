@@ -35,6 +35,7 @@ const ProductDetails = () => {
       toast.show("Cannot add more than maximum quantity", {
         type: "warning",
         placement: "top",
+        duration: 1500,
       });
     }
   };
@@ -46,7 +47,20 @@ const ProductDetails = () => {
     }
   };
 
-  const addToCart = () => {};
+  const addToCart = () => {
+    addItem({
+      id: product.id,
+      title: product.title,
+      image: product.heroImage,
+      price: product.price,
+      quantity,
+    });
+    toast.show("Added to cart", {
+      type: "success",
+      placement: "top",
+      duration: 1500,
+    });
+  };
 
   const totalPrice = (product.price * quantity).toFixed(2);
 
