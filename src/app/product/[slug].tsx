@@ -27,7 +27,17 @@ const ProductDetails = () => {
 
   const [quantity, setQuantity] = useState(initialQuantity);
 
-  const increaseQuantity = () => {};
+  const increaseQuantity = () => {
+    if (quantity < product.maxQuantity) {
+      setQuantity((prev) => prev + 1);
+      incrementItem(product.id);
+    } else {
+      toast.show("Cannot add more than maximum quantity", {
+        type: "warning",
+        placement: "top",
+      });
+    }
+  };
 
   const decreaseQuantity = () => {};
 
