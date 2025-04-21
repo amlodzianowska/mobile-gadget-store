@@ -27,7 +27,7 @@ const ProductDetails = () => {
 
   const [quantity, setQuantity] = useState(initialQuantity);
 
-  const indreaseQuantity = () => {};
+  const increaseQuantity = () => {};
 
   const decreaseQuantity = () => {};
 
@@ -67,6 +67,23 @@ const ProductDetails = () => {
           >
             <Text style={styles.quantityButtonText}>-</Text>
           </TouchableOpacity>
+
+          <Text style={styles.quantity}>{quantity}</Text>
+          <TouchableOpacity
+            style={styles.quantityButton}
+            onPress={increaseQuantity}
+            disabled={quantity >= product.maxQuantity}
+          >
+            <Text style={styles.quantityButtonText}>+</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.addToCartButton,
+              { opacity: quantity === 0 ? 0.5 : 1 },
+            ]}
+            onPress={addToCart}
+            disabled={quantity === 0}
+          ></TouchableOpacity>
         </View>
       </View>
     </View>
