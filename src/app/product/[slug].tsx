@@ -112,7 +112,9 @@ const ProductDetails = () => {
             ]}
             onPress={addToCart}
             disabled={quantity === 0}
-          ></TouchableOpacity>
+          >
+            <Text style={styles.addToCartText}>Add to Cart</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
